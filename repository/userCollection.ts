@@ -42,6 +42,7 @@ export const updateUserData = async (userId: string, updatedData: Partial<Omit<U
 export const registrationUser = async (form: { email: string; password: string; displayName: string; }) => {
     try {
         const userRecord = await getAuth().createUser(form);
+        console.log("userRecord : ", userRecord)
         await db.collection('USERS').doc(userRecord.uid).set({
             uid: userRecord.uid,
             email: userRecord.email,

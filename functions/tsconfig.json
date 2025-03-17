@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es2020"],
+    "rootDir": "../", // 👈 Include whole backend-repo
+    "outDir": "lib",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    
+  },
+  "include": [
+    "../controller/**/*.ts", // 👈 Include your controller
+    "../routes/**/*.ts",     // (Optional) Include other folders if needed
+    "../core/**/*.ts",
+    "../middleware/**/*.ts",
+    "../repository/**/*.ts",
+    "../entities/**/*.ts",
+    "src/**/*.ts"         ,   // Include the functions code itself
+    // "./index.ts"
+  ]
+}
