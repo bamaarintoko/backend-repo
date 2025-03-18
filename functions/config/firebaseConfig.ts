@@ -1,8 +1,8 @@
-// config/firebaseConfig.ts
-import admin from 'firebase-admin';
-import * as path from 'path';
 
-// Load service account key
+import admin from 'firebase-admin';
+const functions = require('firebase-functions');
+import * as path from 'path';
+require('dotenv').config();
 const serviceAccount = require(path.resolve(__dirname, '../serviceAccountKey.json'));
 
 if (!admin.apps.length) {
@@ -12,12 +12,4 @@ if (!admin.apps.length) {
 }
 
 const db = admin.firestore(); // Initialize Firestore
-// ✅ Connect to Firestore Emulator when running locally
-if (process.env.FUNCTIONS_EMULATOR === 'true' || process.env.NODE_ENV === 'development') {
-  console.log('🔥 Connected to Firestore Emulator');
-  db.settings({
-    host: 'localhost:8080',
-    ssl: false,
-  });
-}
 export { admin, db };

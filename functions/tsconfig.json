@@ -1,24 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "commonjs",
-    "lib": ["es2020"],
-    "rootDir": "../", // 👈 Include whole backend-repo
-    "outDir": "lib",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    
+    "target": "ES2020",                      // Modern JS target
+    "module": "commonjs",                    // Required for Node.js compatibility
+    "strict": true,                          // Enable all strict type-checking options
+    "esModuleInterop": true,                  // Allow default imports from CommonJS modules
+    "skipLibCheck": true,                     // Skip type checking for node_modules
+    "forceConsistentCasingInFileNames": true, // Consistent file naming
+    "outDir": "lib",                          // Output compiled files into lib/
+    "rootDir": ".",                           // Root directory is current (functions/)
+    "resolveJsonModule": true                 // Allow importing JSON files
   },
   "include": [
-    "../controller/**/*.ts", // 👈 Include your controller
-    "../routes/**/*.ts",     // (Optional) Include other folders if needed
-    "../core/**/*.ts",
-    "../middleware/**/*.ts",
-    "../repository/**/*.ts",
-    "../entities/**/*.ts",
-    "src/**/*.ts"         ,   // Include the functions code itself
-    // "./index.ts"
+    "**/*.ts"                                 // Include all TS files
+  ],
+  "exclude": [
+    "node_modules",                          // Exclude node_modules
+    "lib"                                     // Exclude output directory
   ]
 }
